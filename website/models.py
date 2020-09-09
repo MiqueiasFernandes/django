@@ -43,6 +43,7 @@ class UniprotKb(models.Model):
     taxonomy = models.ForeignKey(Taxonomy, on_delete=models.CASCADE)
     gos = models.ManyToManyField(GeneOntology)
     pfam = models.ManyToManyField(Pfam)
+    gene = models.ForeignKey(Gene, on_delete=models.CASCADE)
     
     def save(self, *args, **kwargs):
         self.length = len(self.sequence)
